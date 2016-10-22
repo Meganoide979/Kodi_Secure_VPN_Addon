@@ -15,6 +15,8 @@ password = "admin"
 addon_id = 'plugin.program.securevpn'
 icon = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id, 'icon.png'))
 fanart = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'fanart.jpg'))
+fanart_france = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'france.png'))
+fanart_italy = xbmc.translatePath(os.path.join('special://home/addons/' + addon_id , 'italy.png'))
 addon_handle = int(sys.argv[1])
 
 
@@ -33,7 +35,9 @@ def index():
     addDir('[B][COLOR black]VPN Status[/COLOR][/B]','url',1,icon,'',fanart)
     addDir('[B][COLOR black]Restart the VPN [/COLOR][/B]','url',2,icon,'',fanart)
     addDir('[B][COLOR black]Change country [/COLOR][/B]','url',3,icon,'',fanart)
-    addDir('[B][COLOR black]Move VPN to France [/COLOR][/B]','url',4,icon,'',fanart)
+    addDir('[B][COLOR black]Move VPN to France [/COLOR][/B]','url',6,fanart_france,'',fanart_france)
+    addDir('[B][COLOR black]Move VPN to Italy [/COLOR][/B]','url',7,fanart_italy,'',fanart_italy)
+    addDir('[B][COLOR black]Move VPN to UltraFastTV [/COLOR][/B]','url',8,icon,'',fanart)
  
 def command_via_telnet(command):
     global status
@@ -152,7 +156,23 @@ elif mode==4:
 elif mode==5:
     copy_certificate(url)
     configuration=change_config_file(key_ca['ip'])
-    command_via_telnet("killall openvpn;echo '"+key_ca['ca']+"'> /tmp/openvpncl/ca.crt; echo '"+key_ca['key']+"'> /tmp/openvpncl/ta.key;echo '"+configuration+"'> /tmp/openvpncl/openvpn.conf;sleep 5;openvpn --config /tmp/openvpncl/openvpn.conf --daemon \n")
+    command_via_telnet("killall openvpn;echo '"+key_ca['ca']+"'> /tmp/openvpncl/ca.crt; echo '"+key_ca['key']+"'> /tmp/openvpncl/ta.key;echo '"+configuration+"'> /tmp/openvpncl/openvpn.conf;sleep 10;openvpn --config /tmp/openvpncl/openvpn.conf --daemon;sleep 10 \n")
     addDir('[B][COLOR black] The VPN is changed to '+url+'! Enjoy! :)[/COLOR][/B]','','',icon,'',fanart)
+elif mode==6:
+    copy_certificate("fr3_nordvpn_com_ca.crt")
+    configuration=change_config_file(key_ca['ip'])
+    command_via_telnet("killall openvpn;echo '"+key_ca['ca']+"'> /tmp/openvpncl/ca.crt; echo '"+key_ca['key']+"'> /tmp/openvpncl/ta.key;echo '"+configuration+"'> /tmp/openvpncl/openvpn.conf;sleep 10;openvpn --config /tmp/openvpncl/openvpn.conf --daemon;sleep 10 \n")
+    addDir('[B][COLOR black] The VPN is changed to France! Enjoy! :)[/COLOR][/B]','','',icon,'',fanart)
+elif mode==7:
+    copy_certificate("it3_nordvpn_com_ca.crt")
+    configuration=change_config_file(key_ca['ip'])
+    command_via_telnet("killall openvpn;echo '"+key_ca['ca']+"'> /tmp/openvpncl/ca.crt; echo '"+key_ca['key']+"'> /tmp/openvpncl/ta.key;echo '"+configuration+"'> /tmp/openvpncl/openvpn.conf;sleep 10;openvpn --config /tmp/openvpncl/openvpn.conf --daemon;sleep 10 \n")
+    addDir('[B][COLOR black] The VPN is changed to Italy! Enjoy! :)[/COLOR][/B]','','',icon,'',fanart)
+elif mode==8:
+    copy_certificate("us321_nordvpn_com_ca.crt")
+    configuration=change_config_file(key_ca['ip'])
+    command_via_telnet("killall openvpn;echo '"+key_ca['ca']+"'> /tmp/openvpncl/ca.crt; echo '"+key_ca['key']+"'> /tmp/openvpncl/ta.key;echo '"+configuration+"'> /tmp/openvpncl/openvpn.conf;sleep 10;openvpn --config /tmp/openvpncl/openvpn.conf --daemon;sleep 10 \n")
+    addDir('[B][COLOR black] The VPN is changed to UltraFastTV! Enjoy! :)[/COLOR][/B]','','',icon,'',fanart)
+
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
