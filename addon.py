@@ -33,6 +33,7 @@ def index():
     addDir('[B][COLOR black]VPN Status[/COLOR][/B]','url',1,icon,'',fanart)
     addDir('[B][COLOR black]Restart the VPN [/COLOR][/B]','url',2,icon,'',fanart)
     addDir('[B][COLOR black]Change country [/COLOR][/B]','url',3,icon,'',fanart)
+    addDir('[B][COLOR black]Move VPN to France [/COLOR][/B]','url',4,icon,'',fanart)
  
 def command_via_telnet(command):
     global status
