@@ -14,8 +14,8 @@
 		<language></language>
 	</extension>
 	<extension point="xbmc.addon.repository">
-    <info>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/addon.xml</info>
-    <checksum>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/addon.xml.md5</checksum>
-    <datadir>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/</datadir>
-  </extension>
+        <info>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/addon.xml</info>
+        <checksum>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/addon.xml.md5</checksum>
+        <datadir>https://raw.githubusercontent.com/Meganoide979/plugin.program.securevpn/master/</datadir>
+    </extension>
 </addon>
