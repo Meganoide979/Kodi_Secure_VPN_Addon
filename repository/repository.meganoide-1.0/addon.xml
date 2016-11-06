@@ -3,7 +3,7 @@
 	<extension point="xbmc.addon.repository" name="Meganoide">
 		<info compressed="false">https://raw.githubusercontent.com/Meganoide979/Kodi_Secure_VPN_Addon/master/addons/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/Meganoide979/Kodi_Secure_VPN_Addon/master/addons/addons.xml.md5</checksum>
-		<datadir zip="false">https://raw.githubusercontent.com/Meganoide979/Kodi_Secure_VPN_Addon/master/addons</datadir>
+		<datadir zip="false">https://github.com/Meganoide979/Kodi_Secure_VPN_Addon/raw/master/addons/plugin.program.securevpn/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary>Meganoide Repo.</summary>
